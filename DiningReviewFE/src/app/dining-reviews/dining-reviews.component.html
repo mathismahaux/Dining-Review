@@ -1,0 +1,16 @@
+<h2>Dining Reviews</h2>
+<form (ngSubmit)="addReview()">
+    <input [(ngModel)]="newReview.restaurant" name="restaurant" placeholder="Restaurant" required />
+    <input [(ngModel)]="newReview.rating" name="rating" type="number" placeholder="Rating (1-5)" required />
+    <textarea [(ngModel)]="newReview.comment" name="comment" placeholder="Comment"></textarea>
+    <button type="submit">Add Review</button>
+</form>
+
+<ul>
+    @for(review of reviews; track $index) {
+        <li>
+            <strong>{{ review.restaurant }}</strong> - Rating: {{ review.rating }}
+            <p>{{ review.comment }}</p>
+        </li>
+    }
+</ul>

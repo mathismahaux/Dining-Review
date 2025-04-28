@@ -1,0 +1,12 @@
+<h2>Users</h2>
+<form (ngSubmit)="createUser()">
+  <input [(ngModel)]="user.displayName" name="displayName" placeholder="Display Name" required />
+  <input [(ngModel)]="user.city" name="city" placeholder="City" />
+  <input [(ngModel)]="user.state" name="state" placeholder="State" />
+  <input [(ngModel)]="user.zipcode" name="zipcode" placeholder="Zipcode" />
+  <button type="submit">Create User</button>
+</form>
+
+<h3>Get User</h3>
+<input [(ngModel)]="displayName" placeholder="Display Name" />
+<button (click)="getUser()">Fetch User</button>

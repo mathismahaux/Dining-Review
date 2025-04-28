@@ -1,0 +1,19 @@
+<h2>Restaurants</h2>
+<form (ngSubmit)="addRestaurant()">
+    <input [(ngModel)]="newRestaurant.name" name="name" placeholder="Name" required />
+    <input [(ngModel)]="newRestaurant.address" name="address" placeholder="Address" required />
+    <input [(ngModel)]="newRestaurant.zipcode" name="zipcode" placeholder="Zipcode" required />
+    <input [(ngModel)]="newRestaurant.peanutScore" name="peanutScore" type="number" placeholder="Peanut Score" />
+    <input [(ngModel)]="newRestaurant.eggScore" name="eggScore" type="number" placeholder="Egg Score" />
+    <input [(ngModel)]="newRestaurant.dairyScore" name="dairyScore" type="number" placeholder="Dairy Score" />
+    <input [(ngModel)]="newRestaurant.overallScore" name="overallScore" type="number" placeholder="Overall Score" />
+    <button type="submit">Add Restaurant</button>
+</form>
+
+<ul>
+    @for(restaurant of restaurants; track $index) {
+        <li>
+            {{ restaurant.name }} - {{ restaurant.address }}
+          </li>
+    }
+</ul>

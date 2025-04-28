@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  drDb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: drDb
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=reallyStrongPwd123
+    ports:
+      - "1433:1433"
+    networks:
+      - dr-network
+    restart: always
+    
+  frontend:
+    build:
+      context: ./DiningReviewFE 
+      dockerfile: Dockerfile
+    container_name: drAngular
+    ports:
+      - "8080:4200"
+    networks:
+      - dr-network
+
+  backend-dotnet:
+    build: 
+      context: ./DiningReviewBEDotnet
+      dockerfile: Dockerfile
+    container_name: drApiDotnet
+    ports:
+      - "5279:5279"
+    depends_on:
+      - drDb
+    networks:
+      - dr-network
+    environment:
+      - ConnectionStrings__db=Server=drDb;Database=DiningReviewDb;User Id=sa;Password=reallyStrongPwd123;TrustServerCertificate=true
+    restart: always
+
+  backend-spring:
+    build: 
+      context: ./DiningReviewBESpring
+      dockerfile: Dockerfile
+    container_name: drApiSpring
+    ports:
+      - "8081:8080"
+    depends_on:
+      - drDb
+    networks:
+      - dr-network
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://drDb:1433;databaseName=DiningReviewDb;encrypt=true;trustServerCertificate=true
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=reallyStrongPwd123
+    restart: always
+
+networks:
+  dr-network:
+    driver: bridge
