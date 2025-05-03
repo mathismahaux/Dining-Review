@@ -10,3 +10,11 @@
 <h3>Get User</h3>
 <input [(ngModel)]="displayName" placeholder="Display Name" />
 <button (click)="getUser()">Fetch User</button>
+
+<ul>
+  @for(user of users; track $index) {
+      <li>
+          {{ user.displayName }}
+        </li>
+  }
+</ul>
