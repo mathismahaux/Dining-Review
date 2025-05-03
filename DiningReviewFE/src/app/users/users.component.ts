@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent {
+  users: any[] = [];
   user: any = {};
   displayName = '';
 

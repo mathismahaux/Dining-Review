@@ -12,6 +12,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/restaurants")
+@CrossOrigin
+
 public class RestaurantController {
 
     private final RestaurantRepository restaurantRepository;
@@ -20,6 +22,12 @@ public class RestaurantController {
     public RestaurantController(RestaurantRepository restaurantRepository) {
         this.restaurantRepository = restaurantRepository;
     }
+
+    @CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true")
+        @RequestMapping(value = "/restaurants", method = RequestMethod.OPTIONS)
+        public ResponseEntity<?> handleOptions() {
+            return ResponseEntity.ok().build();
+        }
 
     @PostMapping
     public ResponseEntity<?> createRestaurant(@RequestBody Restaurant restaurant) {

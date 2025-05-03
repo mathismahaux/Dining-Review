@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/dining-reviews")
+@CrossOrigin
 public class DiningReviewController {
 
     private final DiningReviewRepository diningReviewRepository;
