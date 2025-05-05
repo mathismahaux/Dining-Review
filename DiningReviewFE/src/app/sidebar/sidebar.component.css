@@ -1,0 +1,44 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: lightgray;
+}
+
+.sidebar ul {
+    margin-top: 30px;
+    list-style-type: none;
+}
+  
+.sidebar.open {
+    left: 0;
+}
+  
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
