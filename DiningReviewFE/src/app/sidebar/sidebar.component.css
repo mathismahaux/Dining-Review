@@ -41,4 +41,10 @@
     background: none;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.hamburger.open {
+    color: white;
+    transform: rotate(90deg);
 }

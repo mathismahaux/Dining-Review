@@ -3,5 +3,9 @@
 <app-restaurants></app-restaurants>
 <hr>
 <app-dining-reviews></app-dining-reviews> -->
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+
+<app-sidebar (sidebarToggled)="isSidebarOpen = $event"></app-sidebar>
+
+<div class="main-content" [class.shifted]="isSidebarOpen">
+  <router-outlet></router-outlet>
+</div>

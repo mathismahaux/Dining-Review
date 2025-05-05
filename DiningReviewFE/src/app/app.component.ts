@@ -13,4 +13,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 })
 export class AppComponent {
   title = 'dining-review-frontend';
+  isSidebarOpen = false;
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 }

@@ -1,9 +1,9 @@
 <div class="sidebar" [class.open]="isSidebarOpen">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Restaurants</a></li>
-      <li><a href="#">Reviews</a></li>
-      <li><a href="#">Users</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="restaurants">Restaurants</a></li>
+        <li><a href="dining-reviews">Reviews</a></li>
+        <li><a href="users">Users</a></li>
     </ul>
-  </div>
-  <button class="hamburger" (click)="toggleSidebar()">☰</button>
+</div>
+<button class="hamburger" [class.open]="isSidebarOpen" (click)="toggleSidebar()">☰</button>
